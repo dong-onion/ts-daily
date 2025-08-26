@@ -1,10 +1,14 @@
 {
-  "name": "ts-dojo",
+  "name": "ts-daily",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "new:day": "node scripts/scaffold.mjs",
+    "typecheck": "tsc --noEmit -p .",
+    "test": "vitest --run && npm run typecheck",
+    "test:watch": "vitest",
     "check": "tsc -p .",
     "start": "tsx src/index.ts"
   },

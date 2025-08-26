@@ -2,45 +2,35 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    "rootDir": "src",
-    "outDir": "dist",
+    "rootDir": ".",
 
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
+    // Node ESM 그대로 유지 (지금 값 OK)
     "module": "nodenext",
     "target": "esnext",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
 
-    // Other Outputs
+    // Node/Vitest 타입 인식
+    "types": ["node", "vitest/globals"],
+
+    // (원래 값 유지) 필요시 lib도 추가 가능: "lib": ["es2020"]
+
+    // 출력물은 만들지 않고 타입 체크만
+    "noEmit": true,
+
+    // 아래 옵션들은 기존 것 유지
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
 
-    // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
 
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
     "strict": true,
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
-
-    "noEmit": true,
-  }
+    "skipLibCheck": true
+  },
+  "include": ["**/*.ts"]
 }
